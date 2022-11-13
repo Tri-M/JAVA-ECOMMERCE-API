@@ -58,7 +58,7 @@ public class UserService {
             // save token in database
             authenticationService.saveConfirmationToken(authenticationToken);
             // success in creating
-            return new SignUpResponseDto("success", "user created successfully");
+            return new SignUpResponseDto("success", "User created successfully :) ");
         } catch (Exception e) {
             // handle signup error
             throw new CustomException(e.getMessage());
@@ -78,7 +78,7 @@ public class UserService {
         // first find User by email
         User user = userRepository.findByEmail(signInDto.getEmail());
         if(!Objects.nonNull(user)){
-            throw new AuthenticationFailException("user not present");
+            throw new AuthenticationFailException("User invalid. ");
         }
         try {
             // check if password is right
